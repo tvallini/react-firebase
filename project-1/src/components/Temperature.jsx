@@ -18,7 +18,7 @@ const Temperature = () => {
           {
             temperature > 21 ? 
               <span class="badge bg-danger">hot</span> :
-              <span class="badge bg-success">cold</span>
+              <span class="badge bg-info">cold</span>
           }
         </h2>
         <button className="btn btn-outline-success" onClick={ Increase }>+</button>

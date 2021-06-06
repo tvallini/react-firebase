@@ -2,6 +2,7 @@ import './App.css';
 import Counter from './components/Counter';
 import List from './components/List';
 import Temperature from './components/Temperature';
+import Form from './components/Form';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Counter />
       <List />
       <Temperature />
+      <Form />
     </div>
   );
 }
