@@ -6,15 +6,23 @@ const Names = () => {
   const [id, setId] = useState('');
   const [names, setNames] = useState([]);
   const [editMode, setEditMode] = useState(false);
+  const [error, setError] = useState(null);
 
   const addName = (e) => {
     e.preventDefault();
+    
+    if (!name.trim()) {
+      setError('name is empty');
+      return;
+    }
+
     const newName = {
       id: uniqid(),
       name: name
     }
     setNames([...names, newName]);
-    setName ('');
+    setName('');
+    setError(null);
   }
 
   const deleteName = (id) => {
@@ -33,6 +41,9 @@ const Names = () => {
     const newNames = names
       .map( item => item.id === id ? { id: id, name: name } : item);
     setNames(newNames);
+    setEditMode(false);
+    setName('');
+    setError(null);
   }
 
   return (
@@ -83,6 +94,15 @@ const Names = () => {
               </button>
             </div>
           </form>
+          {
+            error != null ? (
+              <div className="alert alert-danger" role="alert">
+                { error }
+              </div>
+            ):(
+              <div></div>
+            )
+          }
         </div>
       </div>
     </div>
