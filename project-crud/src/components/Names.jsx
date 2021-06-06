@@ -12,6 +12,7 @@ const Names = () => {
       name: name
     }
     setNames([...names, newName]);
+    setName ('');
   }
 
   return (
@@ -20,6 +21,18 @@ const Names = () => {
       <div className="row">
         <div className="col">
           <h2>Names</h2>
+          <ul className="list-group">
+            {
+              names.map( (item) => 
+                <li 
+                  className="list-group-item"
+                  key={ item.id } 
+                >
+                  { item.name }
+                </li>
+              )
+            }
+          </ul>
         </div>
         <div className="col">
           <h2>Form</h2>
@@ -30,6 +43,7 @@ const Names = () => {
                 onChange={ (e)=>{setName(e.target.value)} }
                 placeholder="Name" 
                 type="text" 
+                value={name}
               />
             </div>
             <div className="col-auto">
