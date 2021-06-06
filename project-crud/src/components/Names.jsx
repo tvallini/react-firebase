@@ -3,7 +3,9 @@ import uniqid from 'uniqid';
 
 const Names = () => {
   const [name, setName] = useState('');
+  const [id, setId] = useState('');
   const [names, setNames] = useState([]);
+  const [editMode, setEditMode] = useState(false);
 
   const addName = (e) => {
     e.preventDefault();
@@ -17,6 +19,19 @@ const Names = () => {
 
   const deleteName = (id) => {
     const newNames = names.filter( item => item.id !== id );
+    setNames(newNames);
+  }
+
+  const isEdit = (item) => {
+    setEditMode(true);
+    setName(item.name);
+    setId(item.id);
+  }
+
+  const editName = (e) => {
+    e.preventDefault();
+    const newNames = names
+      .map( item => item.id === id ? { id: id, name: name } : item);
     setNames(newNames);
   }
 
@@ -37,7 +52,11 @@ const Names = () => {
                   <button 
                     className="btn btn-danger float-end"
                     onClick={ () => deleteName(item.id) }
-                  >-</button>
+                  >delete</button>
+                  <button 
+                    className="btn btn-info float-end"
+                    onClick={ () => isEdit(item) }
+                  >edit</button>
                 </li>
               )
             }
@@ -45,7 +64,10 @@ const Names = () => {
         </div>
         <div className="col">
           <h2>Form</h2>
-          <form className="row g-2" onSubmit={ (e) => { addName(e) } }>
+          <form 
+            className="row g-2" 
+            onSubmit={ editMode ? editName : addName }
+          >
             <div className="col-auto">
               <input 
                 class="form-control" 
@@ -56,7 +78,9 @@ const Names = () => {
               />
             </div>
             <div className="col-auto">
-              <button type="submit" class="btn btn-primary mb-3">Add</button>
+              <button type="submit" class="btn btn-primary mb-3">
+                { editMode ? "Save" : "Add" } 
+              </button>
             </div>
           </form>
         </div>
