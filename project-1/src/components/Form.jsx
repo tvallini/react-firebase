@@ -4,10 +4,23 @@ const Form = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
 
+  const validate = (e) => {
+    e.preventDefault();
+    console.log('submit ok');
+    if (!name.trim()) {
+      console.log('Name is empty..');
+      return;
+    }
+    if (!age.trim()) {
+      console.log('Age is empty..');
+      return;
+    }
+  };
+
   return (
     <div className="container">
       <h2>Form</h2>
-      <form>
+      <form onSubmit={validate}>
         <div className="mb-3">
           <label for="name" className="form-label">Name</label>
           <input 
