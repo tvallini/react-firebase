@@ -15,6 +15,11 @@ const Names = () => {
     setName ('');
   }
 
+  const deleteName = (id) => {
+    const newNames = names.filter( item => item.id !== id );
+    setNames(newNames);
+  }
+
   return (
     <div className="container">
       <h1>CRUD basic</h1>
@@ -29,6 +34,10 @@ const Names = () => {
                   key={ item.id } 
                 >
                   { item.name }
+                  <button 
+                    className="btn btn-danger float-end"
+                    onClick={ () => deleteName(item.id) }
+                  >-</button>
                 </li>
               )
             }
