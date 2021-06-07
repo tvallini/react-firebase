@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Temperature = () => {
   const [temperature, setTemperature] = useState(19);
@@ -9,6 +9,12 @@ const Temperature = () => {
   const Decrease = () => {
     setTemperature(temperature - 1)
   };
+
+  useEffect ( () => {
+    setTimeout( ()=> {
+      setTemperature(35);
+    }, 3000)
+  })
 
   return (
     <>

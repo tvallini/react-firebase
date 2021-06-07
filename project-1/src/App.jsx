@@ -5,7 +5,7 @@ import List from './components/List';
 import Temperature from './components/Temperature';
 import Form from './components/Form';
 import {
-  BrowserRouter as Router, Switch, Route, Link
+  BrowserRouter as Router, Switch, Route
 } from 'react-router-dom';
 import Nav from './components/Nav';
 
