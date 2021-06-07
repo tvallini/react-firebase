@@ -4,6 +4,7 @@ import Counter from './components/Counter';
 import List from './components/List';
 import Temperature from './components/Temperature';
 import Form from './components/Form';
+import User from './components/User';
 import {
   BrowserRouter as Router, Switch, Route
 } from 'react-router-dom';
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/form">
           <Form />
+        </Route>
+        <Route path="/user/:name">
+          <User />
         </Route>
       </Switch>
     </Router>
