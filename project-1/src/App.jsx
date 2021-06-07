@@ -1,4 +1,5 @@
 import React from 'react';
+import Home from './components/Home';
 import Counter from './components/Counter';
 import List from './components/List';
 import Temperature from './components/Temperature';
@@ -14,7 +15,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/">
-          <h4>You-re on /</h4>
+          <Home />
         </Route>
         <Route path="/counter">
           <Counter />

@@ -21,6 +21,9 @@ const Nav = () => {
               <li className="nav-item">
                 <Link to="/temperature" className="nav-link">Temperature</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/form" className="nav-link">Form</Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -12,9 +12,11 @@ export const Counter = () => {
 
   return (
     <>
-      <h2>Counter: { number }</h2>
-      <button onClick={ Increase }>+</button>
-      <button onClick={ Decrease }>-</button>
+      <div className="container mt-3">
+        <h2>Counter: { number }</h2>
+        <button onClick={ Increase }>+</button>
+        <button onClick={ Decrease }>-</button>
+      </div>
     </>
   )
 }

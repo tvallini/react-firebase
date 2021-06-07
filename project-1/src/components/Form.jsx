@@ -18,7 +18,7 @@ const Form = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container mt-3">
       <h2>Form</h2>
       <form onSubmit={validate}>
         <div className="mb-3">

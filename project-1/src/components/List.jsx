@@ -5,15 +5,17 @@ const List = () => {
 
   return (
     <>  
-      <ul className="list-group">
-        {
-          numbers.map( (item, index) => 
+      <div className="container mt-3">
+        <ul className="list-group">
+          {
+            numbers.map( (item, index) => 
             <li key={ index } className="list-group-item">
-              { item }
-            </li>
-          )
-        }
-      </ul>
+                { item }
+              </li>
+            )
+          }
+        </ul>
+      </div>
     </>
   )
 }
