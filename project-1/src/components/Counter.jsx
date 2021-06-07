@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export const Counter = () => {
   const [number, setNumber] = useState(0);
