@@ -25,7 +25,7 @@ const Nav = () => {
                 <Link to="/form" className="nav-link">Form</Link>
               </li>
               <li className="nav-item">
-                <Link to="/user/jack" className="nav-link">User</Link>
+                <Link to="/users" className="nav-link">Users API</Link>
               </li>
             </ul>
           </div>

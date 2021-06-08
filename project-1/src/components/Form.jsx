@@ -22,7 +22,7 @@ const Form = () => {
       <h2>Form</h2>
       <form onSubmit={validate}>
         <div className="mb-3">
-          <label for="name" className="form-label">Name</label>
+          <label htmlFor="name" className="form-label">Name</label>
           <input 
             className="form-control" 
             id="name" 
@@ -31,7 +31,7 @@ const Form = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="age" className="form-label">Age</label>
+          <label htmlFor="age" className="form-label">Age</label>
           <input 
             className="form-control" 
             id="age"

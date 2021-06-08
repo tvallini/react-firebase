@@ -5,6 +5,7 @@ import List from './components/List';
 import Temperature from './components/Temperature';
 import Form from './components/Form';
 import User from './components/User';
+import Users from './components/Users';
 import {
   BrowserRouter as Router, Switch, Route
 } from 'react-router-dom';
@@ -30,7 +31,10 @@ function App() {
         <Route path="/form">
           <Form />
         </Route>
-        <Route path="/user/:name">
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/user/:id">
           <User />
         </Route>
       </Switch>
