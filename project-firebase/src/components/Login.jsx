@@ -1,7 +1,9 @@
 import React, { useState } from 'react'; 
 import {auth} from '../firebaseconfig';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msgError, setMsgError] = useState(null);
@@ -9,7 +11,9 @@ const Login = () => {
   const RegisterUser = (e) => {
     e.preventDefault();
     auth.createUserWithEmailAndPassword(email, password)
-    .then( response => alert('usuario registrado') )
+    .then( response => {
+      history.push('/');
+    })
     .catch( error => {
       if (error.code === 'auth/invalid-email') {
         setMsgError('Invalid email');
@@ -22,7 +26,9 @@ const Login = () => {
 
   const LoginUser = () => {
     auth.signInWithEmailAndPassword(email, password)
-    .then( response => console.log(response) )
+    .then( response => {
+      history.push('/');
+    })
     .catch( error => {
 
       if (error.code === 'auth/invalid-email') {
