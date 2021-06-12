@@ -8,11 +8,16 @@ const Customers = () => {
   useEffect( ()=> {
     const getCustomers = async() => {
       const { docs } = await store.collection('customers').get();
-      const newArray = docs.map( item => ({ id: item.id, ...item.data()}));
-      setCustomers(newArray);
+      const newCustomers = docs.map( item => ({ id: item.id, ...item.data()}));
+      setCustomers(newCustomers);
     }
     getCustomers();
   },[])
+
+  const deleteCustomer = (id) => {
+    const newCustomers = customers.filter( item => item.id !== id );
+    setCustomers(newCustomers);
+  }
 
 
   return (
@@ -26,6 +31,10 @@ const Customers = () => {
               customers.map( (item, index ) => 
                 <li key={ item.id } className="list-group-item">
                   { item.name } ({ item.age })
+                  <button 
+                    className="btn btn-sm btn-danger float-end"
+                    onClick={ () => deleteCustomer(item.id) }
+                  >delete</button>
                 </li>
               )
             }
