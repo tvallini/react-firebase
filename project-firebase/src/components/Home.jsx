@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form';
+import Customers from './Customers';
 
 const Home = () => {
   return (
@@ -10,9 +11,12 @@ const Home = () => {
         </ol>
       </nav>
       <div className="container-md">
-        <div className="row mt-4 justify-content-center">
+        <div className="row mt-4">
           <div className="col-6">
             <Form />
+          </div>
+          <div className="col-6">
+            <Customers />
           </div>
         </div>
       </div>

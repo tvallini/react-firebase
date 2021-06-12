@@ -6,7 +6,6 @@ const Form = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [msgError, setMsgError] = useState('');
-  //const [customer, setCustomer] = useState([]);
 
   const setCustomers = async (e) => {
     e.preventDefault();
@@ -24,7 +23,6 @@ const Form = () => {
     }
     try {
       const data = await store.collection('customers').add(customer);
-      console.log('adentroooo');
       setMsgError('');
     } catch (error) {
       console.log(error);
@@ -35,29 +33,29 @@ const Form = () => {
 
   return (
     <div className="container mt-3">
-      <h2>Customer</h2>
-      <form onSubmit={setCustomers}>
+      <h2>Add Customer</h2>
+      <form onSubmit={setCustomers} className="mt-4">
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Name</label>
           <input 
             className="form-control" 
             id="name" 
             onChange={ (e) => { setName(e.target.value) }}
+            placeholder="Name"
             type="text" 
             value={ name }
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="age" className="form-label">Age</label>
           <input 
             className="form-control" 
             id="age"
             onChange={ (e) => { setAge(e.target.value) }}
+            placeholder="Age"
             type="number" 
             value={ age }
           />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Save</button>
       </form>
       {
         msgError ?
